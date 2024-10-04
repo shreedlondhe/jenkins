@@ -33,6 +33,22 @@ public class TC001 extends TestBase {
 
     }
 
+    
+    @Test()
+    void test3() throws IOException {
+
+//        driver.get("https://www.facebook.com");
+//        driver.findElement(By.xpath("ede")).click();
+        System.out.println("method run ***** xxxxx *****");
+
+        // Properties prop=new Properties();
+        // prop.load(new FileInputStream(System.getProperty("user.dir")+"/src/main/java/config/config.properties"));
+        // System.out.println(prop.getProperty("envirnment"));
+
+
+
+    }
+
 
 
 }
