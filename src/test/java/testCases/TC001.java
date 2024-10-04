@@ -9,10 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.Properties;
 
 @Listeners(iTestListener.class)
 public class TC001 extends TestBase {
@@ -27,6 +25,9 @@ public class TC001 extends TestBase {
 //        driver.findElement(By.xpath("ede")).click();
         System.out.println("method run ***** xxxxx *****");
 
+        Properties prop=new Properties();
+        prop.load(new FileInputStream(System.getProperty("user.dir")+"/src/main/java/config/config.properties"));
+        System.out.println(prop.getProperty("envirnment"));
 
 
 
