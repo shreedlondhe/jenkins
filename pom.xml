@@ -71,6 +71,7 @@
         <version>3.0.0-M7</version>
         <configuration>
          <systemProperties>
+           <allure.results.directory>target/allure-results</allure.results.directory>
             <server>${server}</server>
           </systemProperties>
           <suiteXmlFiles>
