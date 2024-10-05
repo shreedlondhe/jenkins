@@ -20,6 +20,7 @@ public class TC001 extends TestBase {
 
     @Test()
     void test2() throws IOException {
+        Assert.fail();
 
 //        driver.get("https://www.facebook.com");
 //        driver.findElement(By.xpath("ede")).click();
