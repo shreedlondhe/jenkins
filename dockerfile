@@ -1,15 +1,12 @@
-FROM maven:3.9.6-eclipse-temurin-17 AS build
+# Use lightweight JDK 17 image
+FROM eclipse-temurin:17-jdk-alpine
 
 # Set working directory
 WORKDIR /app
 
-# Copy only pom.xml first (for dependency caching)
-COPY pom.xml .
+# Copy fat JAR and testng.xml
+COPY target/selenium-testng-project-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
+COPY testng.xml .
 
-# Pre-download dependencies
-RUN mvn dependency:go-offline -B
-
-# Now copy the rest of the project
-COPY . .
-# Build & test
-RUN mvn clean test
+# Run TestNG using the suite XML
+CMD ["java", "-cp", "app.jar", "org.testng.TestNG", "testng.xml"]
