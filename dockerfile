@@ -14,5 +14,7 @@ COPY . .
 
 # Optionally, run tests during build (or skip to run later)
  RUN mvn clean test
+ # Copy allure results from build stage
+ COPY --from=build /app/target/allure-results /output/allure-results
  # Declare allure-results as a volume
  VOLUME ["/app/target/allure-results"]
