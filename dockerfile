@@ -4,13 +4,14 @@ FROM markhobson/maven-chrome:jdk-21
 # Set working directory inside container
 WORKDIR /app
 
-# Copy Maven project files
+# Copy project files
 COPY pom.xml .
 COPY src ./src
 COPY testng.xml .
 
-# Download dependencies (so they are cached in Docker image)
+# Download dependencies
 RUN mvn dependency:resolve
 
-# Run TestNG tests
-CMD ["mvn", "clean", "test"]
+# Run TestNG tests and generate Allure results
+# Assuming allure-testng adapter is added in pom.xml
+CMD ["mvn", "clean", "test", "allure:report"]
