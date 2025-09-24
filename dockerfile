@@ -1,20 +1,16 @@
-# Stage 1: Build and cache dependencies
-FROM maven:3.9.6-eclipse-temurin-17 AS build
+# Use Maven + JDK + Chrome image
+FROM markhobson/maven-chrome:jdk-21
 
+# Set working directory inside container
 WORKDIR /app
 
-# Copy only pom.xml first to leverage Docker cache
+# Copy Maven project files
 COPY pom.xml .
+COPY src ./src
+COPY testng.xml .
 
-# Download dependencies only once (cached layer)
-RUN mvn dependency:go-offline -B
+# Download dependencies (so they are cached in Docker image)
+RUN mvn dependency:resolve
 
-# Copy all source code
-COPY . .
-
-# Optionally, run tests during build (or skip to run later)
- RUN mvn clean test
- # Copy allure results from build stage
- COPY --from=build /app/target/allure-results /output/allure-results
- # Declare allure-results as a volume
- VOLUME ["/app/target/allure-results"]
+# Run TestNG tests
+CMD ["mvn", "clean", "test"]

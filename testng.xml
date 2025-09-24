@@ -7,7 +7,6 @@
         <classes>
             <class name="testCases.TC001">
                 <methods>
-
                     <include name="test2"/>
                     <include name="test3"/>
                 </methods>

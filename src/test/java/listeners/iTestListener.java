@@ -1,14 +1,15 @@
 package listeners;
 
-import base.TestBase;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
+import testCases.TC001;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +18,8 @@ import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
-public class iTestListener extends TestBase implements org.testng.ITestListener  {
+public class iTestListener extends TC001 implements org.testng.ITestListener {
+
     @Override
     public void onTestStart(ITestResult result) {
 
