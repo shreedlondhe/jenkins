@@ -48,7 +48,7 @@ void setup(){
     @Test()
     void test3() throws IOException {
         driver.get("https://www.facebook.com");
-     // driver.findElement(By.xpath("edey")).click();
+     driver.findElement(By.xpath("edey")).click();
 System.out.println("*******************");
  System.out.println(System.getProperty("server"));
         System.out.println("*******************");
