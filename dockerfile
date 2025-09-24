@@ -14,3 +14,7 @@ RUN mvn dependency:resolve
 
 # Run TestNG tests
 CMD ["mvn", "clean", "test"]
+
+# use below command to run project
+#    docker run --rm -v "%USERPROFILE%\.m2:/root/.m2" -v "%cd%:/app" -v "%cd%\allure-results:/app/target/allure-results" -w /app selenium-test:latest
+
