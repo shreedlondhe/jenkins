@@ -423,7 +423,7 @@
             doc.text('Qty', 122.5, tableTop + 4.5, { align: 'center' });
             doc.text('Unit', 140, tableTop + 4.5, { align: 'center' });
             doc.text('Rate', 160, tableTop + 4.5, { align: 'center' });
-            doc.text('Amount', 182.5, tableTop + 4.5, { align: 'center' });
+            doc.text('Amount in INR', 182.5, tableTop + 4.5, { align: 'center' });
 
             // Get items
             const itemRows = document.querySelectorAll('.item-row');
@@ -480,7 +480,7 @@
             doc.setFontSize(10);
             doc.rect(15, yPos, 155, 8);
             doc.rect(170, yPos, 25, 8);
-            doc.text('TOTAL', 165, yPos + 5.5, { align: 'right' });
+            doc.text('Payment Term : 50% Advance                                                                   TOTAL', 165, yPos + 5.5, { align: 'right' });
             doc.text(totalAmount.toFixed(0), 192, yPos + 5.5, { align: 'right' });
 
             // Save PDF
